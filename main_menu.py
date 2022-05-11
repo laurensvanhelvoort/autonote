@@ -1,8 +1,9 @@
 import os
+import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename
-import tkinter as tk
+
 import main_application as app
 
 # color palette
@@ -12,6 +13,7 @@ col_black = '#252525'
 col_dark_grey = '#57585a'
 col_light_grey = '#9fa3ac'
 col_white = '#ffffff'
+
 
 class MainMenu:
     def __init__(self, master):

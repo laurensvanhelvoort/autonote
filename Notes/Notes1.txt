@@ -1,0 +1,16 @@
+We assume that no transitions are defined for any final
+state, so the TM will halt whenever it enters a final
+(accepting) state.
+• Unfortunately it is not always possible to require that a
+TM halts even if it does not accept.
+• TMs that always halt, regardless of whether or not they
+accept, are a good model of an algorithm. If such an
+algorithm to solve a given problem exists, then we say
+that the problem is decidable.
+
+
+
+No special input file and no special output device. Only
+tape!
+
+

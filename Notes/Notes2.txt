@@ -1,4 +1,0 @@
-The TM is deterministic in the sense that it defines at
-most one move for each configuration.
-
-

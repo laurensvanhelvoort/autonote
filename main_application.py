@@ -11,12 +11,11 @@ from PIL import ImageGrab
 
 import main_menu as menu
 
+# color palette
 col_red = '#da1f26'
 col_light_red = '#d9575b'
-col_black = '#252525'
 col_dark_grey = '#57585a'
 col_light_grey = '#9fa3ac'
-col_white = '#ffffff'
 
 
 class MainApplication(tk.Frame):

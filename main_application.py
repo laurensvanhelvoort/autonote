@@ -1,13 +1,13 @@
 import os
 import time
-import pyautogui
-import pytesseract
-from PIL import ImageGrab
-import PIL.Image
-
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
+
+import PIL.Image
+import pyautogui
+import pytesseract
+from PIL import ImageGrab
 
 import main_menu as menu
 
@@ -17,6 +17,7 @@ col_black = '#252525'
 col_dark_grey = '#57585a'
 col_light_grey = '#9fa3ac'
 col_white = '#ffffff'
+
 
 class MainApplication(tk.Frame):
     def __init__(self, master, isnewsession, s_path):
@@ -61,9 +62,10 @@ class MainApplication(tk.Frame):
         self.app = menu.MainMenu(self.master)
         self.master.mainloop()
 
-    def uniquify(self, path):
+    def uniquify(self, path_name):
+        # add incrementing affixes to filename
         counter = 1
-        filename = path
+        filename = path_name
 
         while os.path.exists(filename.format(counter)):
             if self.isnewsession:
@@ -96,7 +98,8 @@ class MainApplication(tk.Frame):
             messagebox.showerror('Capture failed', 'Error: You didn\'t take a screenshot!')
 
     def write_to_notes(self, text):
-        # write extracted text to .txt file on desktop
+        global path
+        # write extracted text to .txt file
         if not os.path.exists('Notes'):
             try:
                 os.mkdir('Notes')
@@ -104,14 +107,15 @@ class MainApplication(tk.Frame):
                 messagebox.showerror('Error', 'Error: Something went wrong when creating directory!')
 
         if not self.session_ended:
+            # increment filename counter if new session
             if self.isnewsession:
                 path = self.uniquify('Notes/Notes{}.txt')
-                print(f'new session is {self.isnewsession}, so new path is: {path}')
-            else:
-                if self.selected_path:
-                    path = self.selected_path
-                    print(f'new session is {self.isnewsession}, so path is still: {path}')
-            print(path, self.selected_path)
+
+            # write to user selected file
+            if self.selected_path:
+                path = self.selected_path
+
+            # write to same file if in current session
             with open(path, 'a') as f:
-                f.write(text + '\n\n')
+                f.write(text + '\n')
         self.isnewsession = False

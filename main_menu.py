@@ -29,7 +29,7 @@ class MainMenu:
         self.frame = Frame(self.master, bg=col_black)
         self.frame.pack()
 
-        # Header label
+        # header label
         self.header_lbl = Label(self.frame,
                                 text=' Autonote ',
                                 font=('Bahnschrift', 48),
@@ -38,7 +38,7 @@ class MainMenu:
                                 justify=LEFT)
         self.header_lbl.pack(anchor=W, pady=35)
 
-        # New session button
+        # new session button
         self.new_session_img = PhotoImage(file=r'assets/add.png')
         self.new_session_btn = Button(self.frame,
                                       text=' Start new session ',
@@ -51,7 +51,7 @@ class MainMenu:
                                       command=lambda: self.new_session())
         self.new_session_btn.pack(pady=(35, 20))
 
-        # Continue session button
+        # continue session button
         self.continue_session_img = PhotoImage(file=r'assets/continue.png')
         self.continue_session_btn = Button(self.frame,
                                            text=' Continue session ',
@@ -64,7 +64,7 @@ class MainMenu:
                                            command=lambda: self.continue_session())
         self.continue_session_btn.pack(pady=20)
 
-        # Open notes
+        # open notes
         self.open_notes_img = PhotoImage(file=r'assets/open_notes.png')
         self.open_notes_btn = Button(self.frame,
                                      text=' Open notes ',
@@ -77,7 +77,7 @@ class MainMenu:
                                      command=lambda: self.open_notes())
         self.open_notes_btn.pack(pady=20)
 
-        # Quit program button
+        # quit program button
         self.quit_btn = Button(self.frame,
                                text=' Quit ',
                                font=('Bahnschrift Light', 18),
@@ -95,7 +95,7 @@ class MainMenu:
         self.master.mainloop()
 
     def continue_session(self):
-        # File dialog to choose file to write to
+        # file dialog to choose file to write to
         filename = askopenfilename(title='Select notes file',
                                    initialdir='/Notes',
                                    filetypes=[('text files', '*.txt')])
